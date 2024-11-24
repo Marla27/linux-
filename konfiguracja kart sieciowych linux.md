@@ -26,3 +26,16 @@
 - ip a del  `10.0.0.10` dev `enp0s8`
 - `enp0s8` nazwa interfejsu
 - `10.0.0.10` adres IP
+- PLIK KONFIGURACYJNY NETPLAN
+- Dzkięki edycji ustawień w pliku ustawienia zapisują sie
+- LOKALIZACJA PLIKU: `/etc/netplan/`
+- URUCHOMIENEI PLIKU: `sudo nano /etc/netplan/*.yaml`
+- WIDOK W PLIKU:
+- network:
+- ethernets:
+- enp0s3:
+- dhcp4: no
+- addresses: [10.0.0.10/8]
+- gateway4: [10.0.0.1]
+- nameserwer:
+- addresses [8.8.8.8,8.8.8.4.4] 
