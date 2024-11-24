@@ -32,6 +32,8 @@
 - URUCHOMIENEI PLIKU: `sudo nano /etc/netplan/*.yaml`
 - WIDOK W PLIKU:
 - network:
+- version :2
+- render : NetworkManager (#plik ten nie zawsze działa z tą linijką#)
 - ethernets:
 - `enp0s3`:
 - `dhcp4`: no
@@ -45,3 +47,5 @@
 - `gateway` - podajemy brame
 - `nameserwer` nazwa serwera
 - `adresses`(ostatnia pozycja) podajemy DNS
+- Aby aplikowac ustawienia pliku wpisujemy :`sudo netplan apply` w przypadku błedu używamy debugowania `sudo -d apply`
+- Jeżeli chcemy wypróbować ustawienia to wpisujemy :`sudo netplan try
