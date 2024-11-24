@@ -7,11 +7,11 @@
 - Konfiguracja karty sieciowej komenda ifconfig (enp0s8)
 - ifconfig enp0s8 down
 - ifconfig `enp0s8` `10.0.0.10` `netmask` 255.0.0.0 `gateway` 10.0.0.1 `up`
-- ```enp0s8``` -nazwa karty sieciowej na której pracujemy
-- ```netmask``` -maska podsieci
-- ```broadcast``` -adres rozgłoszeniowy
-- ```gateway``` brama
-- ```up``` uruvhamia karte sieciowa spowrotem
+- `enp0s8` -nazwa karty sieciowej na której pracujemy
+- `netmask` -maska podsieci
+- `broadcast` -adres rozgłoszeniowy
+- `gateway` brama
+- `up` uruvhamia karte sieciowa spowrotem
 - Konfiguracja karty sieciowej komenda ip a (enp0s8)
 - ip l set down enp0s8 
 - ip a add `10.0.0.10`/255.0.0.0 `10.0.0.1` dev `enp0s8`
