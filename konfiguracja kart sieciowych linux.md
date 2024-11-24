@@ -33,9 +33,15 @@
 - WIDOK W PLIKU:
 - network:
 - ethernets:
-- enp0s3:
-- dhcp4: no
-- addresses: [10.0.0.10/8]
-- gateway4: [10.0.0.1]
+- `enp0s3`:
+- `dhcp4`: no
+- `addresses`: [10.0.0.10/8]
+- `gateway4`: [10.0.0.1]
 - nameserwer:
-- addresses: [8.8.8.8,8.8.8.4.4] 
+- addresses: [8.8.8.8,8.8.8.4.4]
+- `enp0s3`-nazwa interfejsu który edytujemy
+- `dhcp4` określamy czy dhcp jest odpalone czy nie (yes/no)
+- `address` - podajemy adres oraz maskę sieci (ilu bitowa maska)
+- `gateway` - podajemy brame
+- `nameserwer` nazwa serwera
+- `adresses`(ostatnia pozycja) podajemy DNS
