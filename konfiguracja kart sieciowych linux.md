@@ -38,4 +38,4 @@
 - addresses: [10.0.0.10/8]
 - gateway4: [10.0.0.1]
 - nameserwer:
-- addresses [8.8.8.8,8.8.8.4.4] 
+- addresses: [8.8.8.8,8.8.8.4.4] 
