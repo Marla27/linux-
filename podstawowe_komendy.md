@@ -1,1 +1,49 @@
+- folder domowy `~` `nazwa.użytkownika` `home` `/`
+-
+-   **komenda `cd`** zmienia lokalizacji w której się znajdujemy
+-  Przykłady:
+  
+-      cd ~/uzt/desktop - przenosimy sie do lokalizacji desktop znajdujacej sie w folderze uzt
+-      cd .. - przenosi nas do folderu nadrzędnego
 
+-  **komenda `mkdir`** tworzenie katalogu
+-  *Parametry*
+-  `-p` pozwala na tworzenie struktóry katalogów
+-  `-m` tworzy katalog z określonymi prawami
+-  Przykłady:
+-      mkdir ~/uzt/desktop/kat1 - towrzy kat1 w folderze desktop
+-      mkdir -p test/New - tworzy strukture katalogów w folderze bierzącym
+-    **komenda `rmdir`** usuwanie katalogu
+-    Parametry:
+-
+-
+-
+-
+-   **komenda `ls`** wyświetla zawartości folderu
+-   znaczenie komendy
+-   `-rw-r--r--` `1` `uzt` `uzt` `30` `2010-05-31 10:55` ` plik`
+-   `-rw-r--r--` - uprawnienia do pliku
+-   `1` - liczba łączy
+-   `uzt` id właściciela pliku
+-   `uzt` ID grupy
+-   `30` - ilośc bajtów
+-   `2010-05-31 10:55` -ostatnia data edycji 
+-   `plik` nazwa plku   
+-   Parametry:
+-   `-l` – rozrzedzona zawartość katalogu
+-   `-a` - aby zobaczyć ukryte pliki.
+-   `-A`- aby zobaczyć ukryte pliki.
+-   `-t` – sortowanie według czasu
+-    **komenda `nano`** -tworzy pusty plik który możemy edytować
+-    **komenda `cat`** - wyświetla zawartość pliku
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
