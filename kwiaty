@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dostawa</title>
+    <style>
+        *{
+            font-size: 20px;
+        }
+        body{
+            background-image: url(kwiaty2.png);
+        }
+        
+        .dostawa{
+            width: 30%;
+            background-color: rgb(207, 221, 216);
+            border-style: double;
+            padding: 2%;
+        }
+        .bukiet{
+            width: 30%;
+            background-color: rgb(207, 221, 216);
+            border-style: double;
+            padding: 2%;
+        }
+        .dwa{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .szerokosc{
+            width: 60%;
+        }
+        header{
+            height: 170px;
+            font-size: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        footer{
+            height: 200px;
+            font-size: 40px;
+            text-align: center;
+        }
+        .srodek{
+            text-align: center;
+        }
+        .px40{
+            font-size: 40px;
+        }
+        #doZaplaty{
+            font-size: 100%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+      function sprawdzK(){
+        let koszt;
+        let jakikwiat = document.getElementById("kwiaty").value;
+        let ilesztuk = document.getElementById("ileSztuk").value; 
+        if (ilesztuk <= 0) {
+            alert("Proszę podać liczbę sztuk!");
+            return;
+        }
+        
+        switch (jakikwiat){
+            case "r":
+                koszt = ilesztuk * 9.50;
+                break;
+            case "t":
+                koszt = ilesztuk * 8.50;
+                break;
+            case "s":
+                koszt = ilesztuk * 7.50;
+                break;
+            case "k":
+                koszt = ilesztuk * 6.50;
+                break;
+            case "l":
+                koszt = ilesztuk * 7.00;
+                break;
+            case "a":
+                koszt = ilesztuk * 10.50;
+                break;
+        }
+        
+        if (document.getElementById("przybTak").checked){
+            koszt += 5.0;
+        }
+        
+        document.getElementById("wynik").innerHTML = koszt.toFixed(2);
+      }
+
+      function sprawdzD(){
+        let dzien = document.getElementById("dzien").value;
+        let kosztDostawy = 0;
+        
+        if (dzien >= 1 && dzien <= 5) { 
+            if (document.getElementById("czas1").checked) {
+                kosztDostawy = 10; 
+            } else{                         //if (document.getElementById("czas2").checked) nie trzeba tego
+                kosztDostawy = 15; 
+            }
+        } else { 
+            if (document.getElementById("czas1").checked) {
+                kosztDostawy = 15; 
+            } else{ //if (document.getElementById("czas2").checked) 
+                kosztDostawy = 20; 
+            }
+        }
+
+        document.getElementById("kosztDostawy").innerHTML = kosztDostawy.toFixed(2);
+      }
+
+      function cenaRazem(){
+        let kosztBukietu = parseFloat(document.getElementById("wynik").innerHTML);
+        let kosztDostawy = parseFloat(document.getElementById("kosztDostawy").innerHTML);
+        let suma = kosztBukietu + kosztDostawy;
+
+        
+       document.getElementById("doZaplaty").innerHTML = suma.toFixed(2); 
+      }
+    </script>
+
+    <header>
+        Dostawa kwiatów
+    </header>
+    <main class="dwa">
+        <section class="bukiet">
+            <form action="" method="post">
+                <fieldset>
+                    <br>
+                    <legend>
+                        Wybierz bukiet
+                    </legend>  
+                    <label for="kwiaty" style="width:40%" >Wybierz kwiaty:</label>  
+                    <select id="kwiaty" class="szerokosc">
+                        <option value="r">Róże</option>
+                        <option value="t">Tulipany</option>
+                        <option value="s">Storczyki</option>
+                        <option value="k">Kalie</option>
+                        <option value="l">Lilie</option>
+                        <option Value="a">Anturium</option>
+                    </select>
+                    <br><br>
+                    <label for="ileSztuk">Podaj ile sztuk:</label>
+                    <input type="number" id="ileSztuk" class="szerokosc"> 
+                    <br><br>
+                    <label>Przybranie (5zł):</label>
+                    <input type="radio" name="przybranie" id="przybTak"> Tak
+                    <input type="radio" name="przybranie" id="przybNie"> Nie
+                    <br><br><br>
+                    <div class="srodek">
+                        <input type="button" onclick="sprawdzK()" value="Sprawdź cenę">
+                        <br><br>
+                        <p> Koszt bukietu wynosi <span id="wynik"></span>zł.</p>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+        <section class="dostawa">
+            <form>
+                    <fieldset>
+                        <legend>Sprawdź koszt dostawy</legend>
+                        <br>
+                        Dzień tygodnia: 
+                        <select id="dzien">
+                            <option value=1>Poniedziałek</option>
+                            <option value=2>Wtorek</option>
+                            <option value=3>Środa</option>
+                            <option value=4>Czwartek</option>
+                            <option value=5>Piątek</option>
+                            <option value=6>Sobota</option>
+                            <option value=7>Niedziela</option>
+                        </select> 
+                        <br><br>
+                        Pora dostawy: 
+                        <input type="radio"  name="czas" id="czas1"> 8:00-16:00
+                        <input type="radio"  name="czas" id="czas2"> 16:00-22:00 
+                        <br><br><br>
+                        <div class="srodek">
+                            <input type="button" value="Sprawdź cenę" onclick="sprawdzD()">
+                            <br><br>
+                            Koszt dostawy wynosi <span id="kosztDostawy"></span>zł.
+                        </div>
+                    </fieldset>
+            </form> 
+        </section>
+    </main>
+    <footer class="srodek">
+        <br>
+        <input  type="button" 
+                value="Łączna cena" 
+                onclick="cenaRazem()" 
+                style=" background-color: rgb(207, 221, 216);
+                        border-radius: 4%;
+                        padding:5px;">
+        <br>
+        <p class="px40">
+            Łączna cena za bukiet z dowozem wynosi  <span id="doZaplaty"></span> zł.
+        </p>
+    </footer>
+</body>
+</html>
