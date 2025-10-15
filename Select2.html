@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        Nazwisko : <input type="text" id="nazwisko"><br><br>
+        <input type="checkbox" id="zgoda1">Zgoda na udział w lekcjach religii <br>
+        <input type="checkbox" id="zgoda2">Zgoda na udział w lekcjach edukacji zdrowotnej <br>
+        <input type="checkbox" id="zgoda3">Zgoda na wykorzystanie wizerunku <br>
+        <input type="button" id="guzik1" value="Dodaj info" onclick="DodawanieDoTablicy()">
+    </form>
+    <br>
+    Uczniowie biorący udział w lekcjach religii: <button onclick="pokazUczniow(1)">Pokaż</button>
+    <p id="religia"></p>
+    Uczniowie biorący udział w lekcjach edukacji zdrowotnej: <button onclick="pokazUczniow(2)">Pokaż</button>
+    <p id="edukacja"></p>
+    Uczniowie ze zgodą na publikację wizerunku: <button onclick="pokazUczniow(3)">Pokaż</button>
+    <p id="wizerunek"></p>
+    <script>
+        let info = ["", "Zgoda na udział w lekcjach religii", "Zgoda na udział w lekcjach edukacji zdrowotnej", "Zgoda na wykorzystanie wizerunku"];
+        let uczniowie = [];
+
+        function DodawanieDoTablicy() {
+            let nazwisko = document.getElementById("nazwisko").value;
+            let zgoda1 = document.getElementById("zgoda1").checked;
+            let zgoda2 = document.getElementById("zgoda2").checked;
+            let zgoda3 = document.getElementById("zgoda3").checked;
+              //              0          1       2        3
+            let uczen = [nazwisko, zgoda1, zgoda2, zgoda3];
+            uczniowie.push(uczen);
+            // 0: [nazwisko tru true true]
+            //1:[nazwisko2 false false false]
+
+        }
+
+        function pokazUczniow(zgodaIndex) {
+            let uczniowieZeZgoda = [];
+            for (let i = 0; i < uczniowie.length; i++) {
+                if (uczniowie[i][zgodaIndex]) {
+                    uczniowieZeZgoda.push(uczniowie[i][0]);
+                }
+            }
+            console.log(uczniowieZeZgoda)
+            let elementId;
+            if (zgodaIndex === 1) {
+                elementId = "religia";
+            } else if (zgodaIndex === 2) {
+                elementId = "edukacja";
+            } else {
+                elementId = "wizerunek";
+            }
+            
+            document.getElementById(elementId).innerText = uczniowieZeZgoda.join(", ");
+        }
+    </script>
+</body>
+</html>
