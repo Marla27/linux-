@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style= "text-align: center;">
+    <select id="sel">
+       <option value="0">Osioł0</option>
+        <option value="1">Osioł1</option>
+        <option value="2">Osioł2</option>
+        <option value="3">Osioł3</option>
+        <option value="4">Osioł4</option>
+       <option value="5">Osioł5</option>
+       <option value="6">Osioł6</option> 
+       <option value="7">Osiołall</option>
+    </select> <br>
+    <input type="radio" name="radio1" id="r1">  Wyświetlić role
+   <input type="radio" name="radio1" id="r2">  Nie Wyświetlać roli
+   <br> <input type="button" value="pobierz wartośc" onclick="f1()">
+       <div id="id1"></div>
+
+
+</div>
+<script>
+   let tabosl =["Sołtys 165cm","Franek 160cm","Mieszko 171cm","Bander 170cm","Marcin 173cm","Marek 175cm","Filip 168cm"]
+   let osly=["Sołtys","Franek","Mieszko","Bander","Marcin","Marek","Filp"]
+   let ranga=["...","Przywódca","Mapowy/Strzelec kontaktowy","Broń precyzyjna","Radiowy/zwiad","Wsparcie","Broń cięzka"]
+   
+  
+    function f1(){
+     let tab2=[]
+      let tab1=[] 
+      let s1= document.querySelector("#sel").value
+        let r1= document.querySelector("#r1").checked
+        switch(s1){
+            case "0":
+            if (r1){
+               tab1.push(ranga[0]+" ") 
+
+            } 
+            tab1.push(osly[0])
+                break
+            case "1":
+           if (r1){
+               tab1.push(ranga[1]+" ")
+          }   tab1.push(osly[1])
+             break
+            case "2":
+            if (r1){
+               tab1.push(ranga[2]+" ")    
+           }  tab1.push(osly[2])
+                break
+            case "3":
+            if (r1){
+               tab1.push(ranga[3]+" ")  
+           }  tab1.push(osly[3])
+              break
+              case "4":
+            if (r1){
+               tab1.push(ranga[4]+" ")  
+            } tab1.push(osly[4])
+                break
+              case "5":
+            if (r1){
+               tab1.push(ranga[5]+" ")  
+          }   tab1.push(osly[5])
+               break
+              case "6":
+            if (r1){
+               tab1.push(ranga[6]+" ")  
+          }   tab1.push(osly[6])
+               break
+          case "7":
+    for (let i = 0; i < osly.length; i++) {
+        if (r1) {
+            tab1.push(ranga[i] + " " + osly[i] +"<br>");
+        } else {
+            tab1.push(osly[i] + "<br>");
+        }
+    }
+    break;
+}
+   console.log(tab1)
+   console.log(osly)
+  document.querySelector("#id1").innerHTML += tab1 + "<br>";
+  document.querySelector("#id1").innerHTML += tab2.join("") + "<br>";
+   }
+   function f2(){
+    
+   }
+</script>
+</body>
+</html>
